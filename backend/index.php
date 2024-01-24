@@ -40,10 +40,13 @@
                 font-size:2rem;
                 margin-bottom:10px;
             }
+            .menuButton {
+                text-align:center;
+                cursor:pointer;
+            }
             .menuLinks {
                 display:flex;
-                flex-wrap: wrap;
-                flex-direction: horizontal;
+                flex-direction: column;
                 justify-content: center;
                 margin:10px;
                 display:none;
@@ -70,8 +73,8 @@ if (isset($_GET['key'])) {
 
 ?>
 
-<nav onclick="displayMenu(event)">
-        <div class="menuButton">Menu</div>
+<nav>
+        <div class="menuButton" onclick="displayMenu(event)">Menu</div>
         <div class="menuLinks">
             <a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</a>
             <a href="index.php?step=2&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 12 hours</a>
