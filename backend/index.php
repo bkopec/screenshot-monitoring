@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cerebro</title>
         <style>
             body {
@@ -14,9 +16,22 @@
                 max-width:300px;
                 max-height:168.75px;
             }
+            .focused {
+                width: 100vw;
+                height: 56.25vw;
+                max-width: 1980px;
+                max-height: 1024px;
+            }
         </style>
+        <script>
+            function resizeImage(event) {
+            if (event.target.tagName.toLowerCase() === 'img') {
+                event.target.classList.toggle('focused');
+            }
+            }
+        </script>
     </head>
-    <body>
+    <body onclick="resizeImage(event)">
 <?php
 if (isset($_GET['key'])) {
     $requestKey = htmlspecialchars($_GET['key']);
