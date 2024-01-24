@@ -3,6 +3,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cerebro</title>
+        <script>
+            function resizeImage(event) {
+                if (event.target.tagName.toLowerCase() === 'img') {
+                    event.target.classList.toggle('focused');
+                } 
+            }
+            function displayMenu(event) {
+                this.classList.toggle('visible');
+            }
+        </script>
         <style>
             body {
                 display:flex;
@@ -32,15 +42,13 @@
                 flex-wrap: wrap;
                 flex-direction: horizontal;
                 justify-content: center;
+                margin:10px;
+                display:none;
+            }
+            .visible {
+                display:block;
             }
         </style>
-        <script>
-            function resizeImage(event) {
-            if (event.target.tagName.toLowerCase() === 'img') {
-                event.target.classList.toggle('focused');
-            }
-            }
-        </script>
     </head>
     <body onclick="resizeImage(event)">
 
@@ -59,7 +67,7 @@ if (isset($_GET['key'])) {
 
 ?>
 
-<nav>
+<nav onclick="displayMenu(event)">
         <div class="menuButton">Menu</div>
         <div class="menuLinks">
             <a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</a>
