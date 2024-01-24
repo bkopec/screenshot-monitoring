@@ -51,6 +51,7 @@
                 flex-direction: column;
                 align-items: center;
                 margin:10px;
+                gap:15px;
                 display:none;
             }
             .visible {
