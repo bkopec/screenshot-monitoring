@@ -37,14 +37,16 @@
                 max-height: 1280px;
             }
             nav {
-                font-size:2rem;
                 margin-bottom:10px;
             }
             .menuButton {
+                font-size:3rem;
                 text-align:center;
                 cursor:pointer;
+                padding:35px;
             }
             .menuLinks {
+                font-size:2rem;
                 display:flex;
                 flex-direction: column;
                 align-items: center;
