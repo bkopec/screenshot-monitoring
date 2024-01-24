@@ -66,7 +66,7 @@ if (is_dir($directoryPath)) {
 $x = count($files) - 1;
 $y = 0;
 $step = $step == "" ? 1 : 10;
-while (x > 0 && y < 360) {
+while ($x > 0 && y < 360) {
     $file = $files[x];
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
