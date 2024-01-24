@@ -17,8 +17,12 @@ import javax.imageio.stream.FileImageOutputStream;
 public class Main {
     public static void main(String[] args) throws Exception
     {
+        if (args.length != 1) {
+            System.out.println("Usage: java -jar screenshotmonitoring.jar <key>");
+            System.exit(1);
+        }
         Config.init();
-        Sender s = new Sender();
+        Sender s = new Sender(args[0]);
         Recorder recorder = new Recorder();
         recorder.setupWriter();
         s.start();

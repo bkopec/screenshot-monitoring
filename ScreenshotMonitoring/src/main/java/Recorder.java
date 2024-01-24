@@ -50,7 +50,6 @@ public class Recorder {
             writer.setOutput(fileStream);
             writer.write(null, new IIOImage(screenShot, null, null), writeParam);
             fileStream.close();
-            screenShot = null;
             Thread.sleep(Config.SCREENSHOT_INTERVAL_MS);
         }
     }

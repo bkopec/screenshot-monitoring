@@ -28,5 +28,3 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-## Auth Key ##
-/out/artifacts/ScreenshotMonitoring_jar/key

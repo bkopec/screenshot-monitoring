@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -17,9 +19,10 @@ import org.apache.http.util.EntityUtils;
 public class Sender extends Thread {
     String userDocumentsPath = Config.USER_DOCUMENTS_PATH;
     File folder;
-
-    Sender() {
+    String key;
+    Sender(String key) {
         folder = new File(userDocumentsPath);
+        this.key = key;
     }
 
     private void getImagesPaths(ArrayList<String> paths) {
@@ -29,9 +32,10 @@ public class Sender extends Thread {
             paths.add(listOfFiles[i].getAbsolutePath());
     }
 
-    private static void uploadFiles(String remoteUrl, List<String> paths) throws IOException {
+    private void uploadFiles(String remoteUrl, List<String> paths) throws IOException {
         HttpClient httpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(remoteUrl);
+        HttpPost httpPost = new HttpPost(remoteUrl + "?key=" + key);
+        System.out.println(remoteUrl + "?key=" + key);
 
         MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
 
@@ -64,6 +68,7 @@ public class Sender extends Thread {
             //System.out.println("HTTP Body: " + EntityUtils.toString(response.getEntity()));
         } else {
             //System.out.println("Failure");
+            //System.out.println("HTTP Body: " + EntityUtils.toString(response.getEntity()));
         }
 
     }
