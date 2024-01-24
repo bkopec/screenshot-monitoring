@@ -24,6 +24,15 @@
                 max-width: 1980px;
                 max-height: 1280px;
             }
+            #menu {
+                font-size:2rem;
+            }
+            .menuLinks {
+                display:flex;
+                flex-wrap: wrap;
+                flex-direction: horizontal;
+                justify-content: center;
+            }
         </style>
         <script>
             function resizeImage(event) {
@@ -52,14 +61,11 @@ if (isset($_GET['key'])) {
 
 <nav>
         <div class="menuButton">Menu</div>
-        <div class="menuLinks"><a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 3 hours<</div>
+        <div class="menuLinks"><a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</div>
+        <div class="menuLinks"><a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 60 hours</div>
 </nav>
 
 <?php
-$step = "";
-if (isset($_GET['step'])) {
-    $step = htmlspecialchars($_GET['step']);
- }
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -80,10 +86,14 @@ if (is_dir($directoryPath)) {
     echo "images directory does not exist.\n";
 }
 
+$step = 1;
+if (isset($_GET['step'])) {
+    $step = htmlspecialchars($_GET['step']);
+ }
+
 $x = count($files) - 1;
 $y = 0;
-$step = $step == "" ? 1 : 10;
-while ($x > 0 && $y < 360) {
+while ($x >= 0 && $y < 360) {
     $file = $files[$x];
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
