@@ -11,8 +11,8 @@
                 justify-content: center;
             }
             img {
-                width: 25vw;
-                height: 14.81vw;
+                width: 32vw;
+                height: 18vw;
                 max-width:300px;
                 max-height:168.75px;
             }
@@ -20,7 +20,7 @@
                 width: 100vw;
                 height: 56.25vw;
                 max-width: 1980px;
-                max-height: 1024px;
+                max-height: 1280px;
             }
         </style>
         <script>
@@ -65,15 +65,6 @@ if (is_dir($directoryPath)) {
     $files = array_filter($filesAndDirs, function ($item) use ($directoryPath) {
         return is_file($directoryPath . '/' . $item);
     });
-
-    if (!empty($files)) {
-        echo "Files in $directoryPath:\n";
-        foreach ($files as $file) {
-            echo $file . "\n";
-        }
-    } else {
-        echo "No files found in $directoryPath.\n";
-    }
 } else {
     echo "images directory does not exist.\n";
 }
