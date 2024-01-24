@@ -72,7 +72,7 @@ while ($x > 0 && $y < 360) {
     $file = file_get_contents($file);
     $file = base64_encode($file);
     echo("<img src='data:image/webp;base64,$file'>");
-    $x -= step;
+    $x -= $step;
     $y++;
 }
 
