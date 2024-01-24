@@ -18,5 +18,23 @@ ini_set('max_file_uploads', '250');
 error_reporting(E_ALL);
 
 // todo list all images by days as base64
+if (is_dir("images")) {
+    $filesAndDirs = scandir($directoryPath);
+
+    $files = array_filter($filesAndDirs, function ($item) use ($directoryPath) {
+        return is_file($directoryPath . '/' . $item);
+    });
+
+    if (!empty($files)) {
+        echo "Files in $directoryPath:\n";
+        foreach ($files as $file) {
+            echo $file . "\n";
+        }
+    } else {
+        echo "No files found in $directoryPath.\n";
+    }
+} else {
+    echo "images directory does not exist.\n";
+}
 
 ?>
