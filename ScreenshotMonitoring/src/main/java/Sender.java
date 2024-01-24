@@ -52,10 +52,14 @@ public class Sender extends Thread {
 
         int statusCode = response.getStatusLine().getStatusCode();
         if (statusCode == 200) {
+            i = 0;
             for (String filePath : paths) {
                 File file = new File(filePath);
                 if (file.exists())
                     file.delete();
+                i++;
+                if (i == max)
+                    break;
             }
             //System.out.println("HTTP Body: " + EntityUtils.toString(response.getEntity()));
         } else {

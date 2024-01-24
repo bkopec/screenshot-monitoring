@@ -19,9 +19,9 @@ public class Main {
     {
         Config.init();
         Sender s = new Sender();
-        s.start();
         Recorder recorder = new Recorder();
         recorder.setupWriter();
+        s.start();
         recorder.record();
     }
 }
