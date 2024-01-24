@@ -9,10 +9,12 @@
                 flex-direction: horizontal;
                 flex-wrap:wrap;
                 justify-content: center;
+                margin:0px;
+                padding:3px;
             }
             img {
-                width: 32vw;
-                height: 18vw;
+                width: 30vw;
+                height: 16.87vw;
                 max-width:300px;
                 max-height:168.75px;
             }
