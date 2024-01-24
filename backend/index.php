@@ -10,17 +10,19 @@
                 } 
             }
             function displayMenu(event) {
-                this.classList.toggle('visible');
+                document.getElementsByClassName('menuLinks')[0].classList.toggle('visible');
             }
         </script>
         <style>
             body {
+                margin:0px;
+                padding:3px;
+            }
+            main {
                 display:flex;
                 flex-direction: horizontal;
                 flex-wrap:wrap;
                 justify-content: center;
-                margin:0px;
-                padding:3px;
             }
             img {
                 width: 30vw;
@@ -36,6 +38,7 @@
             }
             nav {
                 font-size:2rem;
+                margin-bottom:10px;
             }
             .menuLinks {
                 display:flex;
@@ -76,7 +79,7 @@ if (isset($_GET['key'])) {
             <a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 60 hours</a>
         </div>
 </nav>
-
+<main>
 <?php
 
 ini_set('display_errors', 1);
@@ -128,4 +131,5 @@ if ($nbFiles > 3600) {
 
 //$klTimeZone = new DateTimeZone('Asia/Kuala_Lumpur');
 ?>
+</main>
     </body>
