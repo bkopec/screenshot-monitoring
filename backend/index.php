@@ -47,7 +47,7 @@ if (isset($_GET['key'])) {
 
 $step = "";
 if (isset($_GET['step'])) {
-    $frame = htmlspecialchars($_GET['step']);
+    $step = htmlspecialchars($_GET['step']);
  }
 
 ini_set('display_errors', 1);
