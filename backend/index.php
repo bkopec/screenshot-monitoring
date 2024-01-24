@@ -34,6 +34,7 @@
         </script>
     </head>
     <body onclick="resizeImage(event)">
+
 <?php
 if (isset($_GET['key'])) {
     $requestKey = htmlspecialchars($_GET['key']);
@@ -47,6 +48,14 @@ if (isset($_GET['key'])) {
     exit("Missing key.");
 }
 
+?>
+
+<nav>
+        <div class="menuButton">Menu</div>
+        <div class="menuLinks"><a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 3 hours<</div>
+</nav>
+
+<?php
 $step = "";
 if (isset($_GET['step'])) {
     $step = htmlspecialchars($_GET['step']);
