@@ -74,12 +74,12 @@ if (isset($_GET['key'])) {
 ?>
 
 <nav>
-        <div class="menuButton" onclick="displayMenu(event)">Menu</div>
+        <div class="menuButton" onclick="displayMenu(event)">Click here for the Menu</div>
         <div class="menuLinks">
-            <a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</a>
-            <a href="index.php?step=2&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 12 hours</a>
-            <a href="index.php?step=5&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 30 hours</a>
-            <a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 60 hours</a>
+            <a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">See the last 6 hours</a>
+            <a href="index.php?step=2&key=<?php echo(htmlspecialchars($_GET['key']))?>">See the last 12 hours</a>
+            <a href="index.php?step=5&key=<?php echo(htmlspecialchars($_GET['key']))?>">See the last 30 hours</a>
+            <a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">See the last 60 hours</a>
         </div>
 </nav>
 <main>
