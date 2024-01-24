@@ -50,8 +50,8 @@
                 display:flex;
                 flex-direction: column;
                 align-items: center;
-                margin:10px;
-                gap:15px;
+                padding:15px;
+                gap:10px;
                 display:none;
             }
             .visible {
