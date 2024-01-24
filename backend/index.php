@@ -30,7 +30,7 @@ if (isset($_GET['key'])) {
     exit("Missing key.");
 }
 
-$step = ""
+$step = "";
 if (isset($_GET['step'])) {
     $frame = htmlspecialchars($_GET['step']);
  }
