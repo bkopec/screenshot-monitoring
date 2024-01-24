@@ -28,8 +28,9 @@ public class Recorder {
         writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         writeParam.setCompressionType(writeParam.getCompressionTypes()[WebPWriteParam.LOSSY_COMPRESSION]);
         writeParam.setCompressionQuality(Config.COMPRESSION_QUALITY);
-        robot = new Robot();
 
+        robot = new Robot();
+        
         File folder = new File(userDocumentsPath);
         if (!folder.exists()) {
             boolean created = folder.mkdirs();
@@ -49,6 +50,7 @@ public class Recorder {
             writer.setOutput(fileStream);
             writer.write(null, new IIOImage(screenShot, null, null), writeParam);
             fileStream.close();
+            screenShot = null;
             Thread.sleep(Config.SCREENSHOT_INTERVAL_MS);
         }
     }

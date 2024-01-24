@@ -4,7 +4,7 @@ public class Config {
 
    static String SERVER_URL = "https://screenshotmonitoring.bkopec.com/upload.php";
    static int MAX_FILES_PER_UPLOAD = 150;
-   static int INTERVAL_PER_UPLOAD_MS = 10000;
+   static int INTERVAL_PER_UPLOAD_MS = 160000;
    static String USER_DOCUMENTS_PATH = System.getProperty("user.home") + "\\Pictures\\ScreenshotMonitoring\\";
 
     static void init() {
