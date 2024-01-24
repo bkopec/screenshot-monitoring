@@ -43,8 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['files'])) {
     }
 }
 else {
-    echo("test");
-    //http_response_code(400);
+    http_response_code(400);
 }
 ?>
   
