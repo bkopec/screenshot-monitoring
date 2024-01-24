@@ -18,7 +18,9 @@ ini_set('max_file_uploads', '250');
 error_reporting(E_ALL);
 
 // todo list all images by days as base64
-if (is_dir("images")) {
+$directoryPath = "images";
+
+if (is_dir($directoryPath)) {
     $filesAndDirs = scandir($directoryPath);
 
     $files = array_filter($filesAndDirs, function ($item) use ($directoryPath) {
