@@ -24,7 +24,7 @@
                 max-width: 1980px;
                 max-height: 1280px;
             }
-            #menu {
+            nav {
                 font-size:2rem;
             }
             .menuLinks {
@@ -61,8 +61,12 @@ if (isset($_GET['key'])) {
 
 <nav>
         <div class="menuButton">Menu</div>
-        <div class="menuLinks"><a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</div>
-        <div class="menuLinks"><a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 60 hours</div>
+        <div class="menuLinks">
+            <a href="index.php?key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 6 hours</a>
+            <a href="index.php?step=2&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 12 hours</a>
+            <a href="index.php?step=5&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 30 hours</a>
+            <a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">Last 60 hours</a>
+        </div>
 </nav>
 
 <?php
