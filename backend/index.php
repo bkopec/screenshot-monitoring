@@ -116,7 +116,7 @@ $y = 0;
 while ($x >= 0 && $y < 360) {
     $file = $files[$x];
     //$timestamp = strstr($file, '.', true);
-    $dateTime->setTimestamp(strstr($file, '.', true););
+    $dateTime->setTimestamp(strstr($file, '.', true));
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
     $file = base64_encode($file);
