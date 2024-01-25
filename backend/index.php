@@ -113,10 +113,24 @@ $dateTime->setTimezone($kualaLumpurTimeZone);
 
 $x = count($files) - 1;
 $y = 0;
+$currDay = 0;
+$currHour = 0;
+$currMonth = 0;
 while ($x >= 0 && $y < 360) {
     $file = $files[$x];
     $timestamp = strstr($file, '.', true);
     $dateTime->setTimestamp(strstr($file, '.', true));
+    $day = (int) $dateTime->format('d');
+    $month = (int) $dateTime->format('m'); 
+    $hour = (int) $dateTime->format('H');
+    if ($currDay !== $day || $currHour !== $hour || $currMonth !== $month) {
+        $currDay = $day;
+        $currHour = $hour;
+        $currMonth = $month;
+        echo("<div style=\"width:100%;text-align:center;font-size:2rem;margin-bottom:10px;\">");
+        echo($dateTime->format('d F y H:i:s'));
+        echo("</div>");
+    }
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
     $file = base64_encode($file);

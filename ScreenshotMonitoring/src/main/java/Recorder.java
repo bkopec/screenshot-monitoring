@@ -45,7 +45,7 @@ public class Recorder {
     public void record() throws Exception
     {
         while(true) {
-            FileImageOutputStream fileStream = new FileImageOutputStream(new File(userDocumentsPath + System.currentTimeMillis() + ".webp"));
+            FileImageOutputStream fileStream = new FileImageOutputStream(new File(userDocumentsPath + (System.currentTimeMillis() / 1000) + ".webp"));
             BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             writer.setOutput(fileStream);
             writer.write(null, new IIOImage(screenShot, null, null), writeParam);
