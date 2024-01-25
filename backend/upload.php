@@ -12,11 +12,6 @@ if (isset($_GET['key'])) {
     exit("Missing key.");
 }
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-ini_set('max_file_uploads', '250');
-error_reporting(E_ALL);
-
 $uploadDirectory = './images/';
 if (!is_dir($uploadDirectory)) {
     mkdir($uploadDirectory, 0775, true);

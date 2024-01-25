@@ -85,15 +85,10 @@ if (isset($_GET['key'])) {
             <a href="index.php?step=10&key=<?php echo(htmlspecialchars($_GET['key']))?>">See the last 60 hours</a>
         </div>
 </nav>
+
 <main>
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-ini_set('max_file_uploads', '250');
-error_reporting(E_ALL);
-
-// todo list all images by days as base64
 $directoryPath = "images";
 $files = [];
 
@@ -104,7 +99,7 @@ if (is_dir($directoryPath)) {
         return is_file($directoryPath . '/' . $item);
     });
 } else {
-    echo "images directory does not exist.\n";
+    echo "images/ directory does not exist.\n";
 }
 
 $step = 1;
@@ -116,15 +111,15 @@ $x = count($files) - 1;
 $y = 0;
 while ($x >= 0 && $y < 360) {
     $file = $files[$x];
+    $timestamp = strstr($file, '.', true);
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
     $file = base64_encode($file);
-    echo("<img src='data:image/webp;base64,$file'>");
+    echo("<img title="<?php echo($timestamp); ?>" src='data:image/webp;base64,$file'>");
     $x -= $step;
     $y++;
 }
 
-// unlink the first n files above 2400 count 
 $nbFiles = count($files);
 
 if ($nbFiles > 3600) {
@@ -134,8 +129,7 @@ if ($nbFiles > 3600) {
         unlink($file);
     }
 }
-
-//$klTimeZone = new DateTimeZone('Asia/Kuala_Lumpur');
 ?>
+
 </main>
-    </body>
+</body>
