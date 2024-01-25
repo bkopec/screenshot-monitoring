@@ -115,7 +115,7 @@ while ($x >= 0 && $y < 360) {
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
     $file = base64_encode($file);
-    echo("<img title="$timestamp" src='data:image/webp;base64,$file'>");
+    echo("<img title=\"" . $timestamp . "\" src='data:image/webp;base64,$file'>");
     $x -= $step;
     $y++;
 }
