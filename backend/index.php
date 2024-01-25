@@ -107,15 +107,20 @@ if (isset($_GET['step'])) {
     $step = htmlspecialchars($_GET['step']);
  }
 
+$kualaLumpurTimeZone = new DateTimeZone('Asia/Kuala_Lumpur');
+$dateTime = new DateTime();
+$dateTime->setTimezone($kualaLumpurTimeZone);
+
 $x = count($files) - 1;
 $y = 0;
 while ($x >= 0 && $y < 360) {
     $file = $files[$x];
-    $timestamp = strstr($file, '.', true);
+    //$timestamp = strstr($file, '.', true);
+    $dateTime->setTimestamp(strstr($file, '.', true););
     $file = $directoryPath . '/' . $file;
     $file = file_get_contents($file);
     $file = base64_encode($file);
-    echo("<img title=\"" . $timestamp . "\" src='data:image/webp;base64,$file'>");
+    echo("<img title=\"" . $dateTime->format('d F Y H:i:s') . "\" src='data:image/webp;base64,$file'>");
     $x -= $step;
     $y++;
 }
